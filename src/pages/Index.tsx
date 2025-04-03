@@ -26,6 +26,13 @@ const Index = () => {
         });
       });
     });
+
+    // Preload the PDF for faster download experience
+    const preloadLink = document.createElement('link');
+    preloadLink.href = '/cv-hayder-labidi.pdf';
+    preloadLink.rel = 'preload';
+    preloadLink.as = 'document';
+    document.head.appendChild(preloadLink);
   }, []);
 
   return (
