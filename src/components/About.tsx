@@ -12,6 +12,50 @@ const skills = [
   { name: 'UI/UX Design', level: 70 },
 ];
 
+const experiences = [
+  {
+    position: "Mobile Developer Intern",
+    company: "Bee Coders",
+    period: "July 2024 - August 2024",
+    description: "Developed a social application for travelers using Flutter and SpringBoot. Implemented core features including authentication, data storage, and UI components."
+  },
+  {
+    position: "Web Developer Intern",
+    company: "Opus Lab",
+    period: "July 2023 - August 2023",
+    description: "Worked on web application development using Angular and Node.js. Contributed to front-end design and implemented responsive UI components."
+  },
+  {
+    position: "Freelance Developer",
+    company: "Self-employed",
+    period: "2022 - Present",
+    description: "Developing websites and applications for clients across various industries. Specializing in responsive design and full-stack solutions."
+  }
+];
+
+const education = [
+  {
+    institution: "Higher Institute of Technological Studies of Sidi Bouzid",
+    degree: "Applied License in Web and Multimedia Development",
+    period: "Sept 2022 - Present"
+  },
+  {
+    institution: "9antra.tn-The Bridge",
+    degree: "Mobile Development Training",
+    period: "July 2024 - August 2024"
+  },
+  {
+    institution: "Opus Lab",
+    degree: "Web Front-End Development Training",
+    period: "July 2023 - August 2023"
+  },
+  {
+    institution: "9 Avril High School, Sidi Bouzid",
+    degree: "Technical Baccalaureate",
+    period: "Sept 2020 - June 2021"
+  }
+];
+
 export default function About() {
   return (
     <section id="about" className="section-padding">
@@ -31,7 +75,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -110,28 +154,70 @@ export default function About() {
                 </motion.div>
               ))}
             </div>
-
-            <h3 className="text-2xl font-bold mb-4 mt-8">Education</h3>
-            <div className="space-y-3">
-              <div>
-                <p className="font-medium">Higher Institute of Technological Studies of Sidi Bouzid</p>
-                <p className="text-sm text-muted-foreground">Web and Multimedia Development • Sept 2022 - Present</p>
-              </div>
-              <div>
-                <p className="font-medium">9antra.tn-The Bridge</p>
-                <p className="text-sm text-muted-foreground">Mobile Development Training • July 2024 - August 2024</p>
-              </div>
-              <div>
-                <p className="font-medium">Opus Lab</p>
-                <p className="text-sm text-muted-foreground">Web Front-End Development Training • July 2023 - August 2023</p>
-              </div>
-              <div>
-                <p className="font-medium">9 Avril High School, Sidi Bouzid</p>
-                <p className="text-sm text-muted-foreground">Technical Baccalaureate • Sept 2020 - June 2021</p>
-              </div>
-            </div>
           </motion.div>
         </div>
+
+        {/* Experience Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <h3 className="text-3xl font-bold mb-8 text-center">
+            <span className="text-gradient">Experience</span>
+          </h3>
+          
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 * index }}
+                className="glass-card p-6 rounded-xl"
+              >
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                  <h4 className="text-xl font-bold">{exp.position}</h4>
+                  <span className="text-primary text-sm">{exp.period}</span>
+                </div>
+                <p className="text-muted-foreground mb-4">{exp.company}</p>
+                <p className="text-sm">{exp.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Education Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h3 className="text-3xl font-bold mb-8 text-center">
+            <span className="text-gradient">Education</span>
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+                className="glass-card p-6 rounded-xl"
+              >
+                <h4 className="text-lg font-bold mb-2">{edu.institution}</h4>
+                <p className="text-primary mb-2">{edu.degree}</p>
+                <p className="text-sm text-muted-foreground">{edu.period}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
