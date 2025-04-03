@@ -1,11 +1,11 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Hero() {
   const [text, setText] = useState('');
-  const fullText = "Creative Developer";
+  const fullText = "Full-Stack Developer";
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
           >
-            John Doe
+            Hayder Labidi
           </motion.h1>
 
           <motion.div
@@ -68,7 +68,7 @@ export default function Hero() {
             className="flex items-center justify-center space-x-4"
           >
             <motion.a
-              href="https://github.com"
+              href="https://github.com/HayderLabidi"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
@@ -77,7 +77,7 @@ export default function Hero() {
               <Github size={24} />
             </motion.a>
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/hayder-labidi"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: -10 }}
@@ -86,13 +86,13 @@ export default function Hero() {
               <Linkedin size={24} />
             </motion.a>
             <motion.a
-              href="https://twitter.com"
+              href="mailto:hayderlabidi2001@icloud.com"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 10 }}
               className="text-white hover:text-primary transition-colors"
             >
-              <Twitter size={24} />
+              <Mail size={24} />
             </motion.a>
           </motion.div>
         </div>

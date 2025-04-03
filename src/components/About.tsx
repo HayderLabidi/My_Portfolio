@@ -2,14 +2,14 @@
 import { motion } from 'framer-motion';
 
 const skills = [
-  { name: 'React', level: 90 },
-  { name: 'Three.js', level: 85 },
-  { name: 'TypeScript', level: 80 },
-  { name: 'GLSL Shaders', level: 75 },
-  { name: 'WebGL', level: 70 },
-  { name: 'Node.js', level: 85 },
-  { name: 'UI/UX Design', level: 80 },
-  { name: 'Framer Motion', level: 90 },
+  { name: 'JavaScript/TypeScript', level: 90 },
+  { name: 'React/Angular', level: 88 },
+  { name: 'Node.js/Express', level: 85 },
+  { name: 'Flutter/Mobile', level: 80 },
+  { name: 'MySQL/MongoDB', level: 82 },
+  { name: 'Java/Python', level: 75 },
+  { name: 'PHP/Symfony', level: 78 },
+  { name: 'UI/UX Design', level: 70 },
 ];
 
 export default function About() {
@@ -27,7 +27,7 @@ export default function About() {
             <span className="text-gradient">About Me</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Creative developer with a passion for building beautiful and interactive web experiences.
+            Full-stack developer specializing in web, mobile, and desktop application development.
           </p>
         </motion.div>
 
@@ -38,22 +38,41 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold mb-4">My Story</h3>
+            <h3 className="text-2xl font-bold mb-4">My Background</h3>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                I'm a passionate 3D web developer with 5 years of experience crafting interactive digital experiences. 
-                My journey began with traditional web development, but I quickly fell in love with the immersive 
-                possibilities of WebGL and Three.js.
+                I'm an experienced full-stack developer specializing in back-end and front-end application development,
+                systems management, and mobile, web, and desktop applications.
               </p>
               <p>
-                I specialize in creating visually stunning and performant 3D websites that push the boundaries 
-                of what's possible in the browser. My approach combines technical expertise with creative vision 
-                to build memorable user experiences.
+                Currently studying at the Higher Institute of Technological Studies of Sidi Bouzid in Web and Multimedia Development,
+                I've complemented my education with focused training in Mobile Development at 9antra.tn-The Bridge
+                and Web Front-End Development at Opus Lab.
               </p>
               <p>
-                When I'm not coding, you'll find me experimenting with new visual techniques, contributing to 
-                open-source projects, or speaking at tech conferences about the future of web graphics.
+                My professional experience spans mobile app development with Flutter and SpringBoot, web development with Angular and Node.js,
+                and various other technologies. I'm passionate about creating innovative solutions and building engaging user experiences.
               </p>
+            </div>
+            
+            <h3 className="text-2xl font-bold mb-4 mt-8">Languages</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <p className="font-medium">Arabic</p>
+                <p className="text-muted-foreground">Native</p>
+              </div>
+              <div>
+                <p className="font-medium">English</p>
+                <p className="text-muted-foreground">Advanced</p>
+              </div>
+              <div>
+                <p className="font-medium">French</p>
+                <p className="text-muted-foreground">Intermediate</p>
+              </div>
+              <div>
+                <p className="font-medium">German</p>
+                <p className="text-muted-foreground">Beginner</p>
+              </div>
             </div>
           </motion.div>
 
@@ -90,6 +109,26 @@ export default function About() {
                   </div>
                 </motion.div>
               ))}
+            </div>
+
+            <h3 className="text-2xl font-bold mb-4 mt-8">Education</h3>
+            <div className="space-y-3">
+              <div>
+                <p className="font-medium">Higher Institute of Technological Studies of Sidi Bouzid</p>
+                <p className="text-sm text-muted-foreground">Web and Multimedia Development • Sept 2022 - Present</p>
+              </div>
+              <div>
+                <p className="font-medium">9antra.tn-The Bridge</p>
+                <p className="text-sm text-muted-foreground">Mobile Development Training • July 2024 - August 2024</p>
+              </div>
+              <div>
+                <p className="font-medium">Opus Lab</p>
+                <p className="text-sm text-muted-foreground">Web Front-End Development Training • July 2023 - August 2023</p>
+              </div>
+              <div>
+                <p className="font-medium">9 Avril High School, Sidi Bouzid</p>
+                <p className="text-sm text-muted-foreground">Technical Baccalaureate • Sept 2020 - June 2021</p>
+              </div>
             </div>
           </motion.div>
         </div>
