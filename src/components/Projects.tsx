@@ -8,21 +8,21 @@ const projects = [
     description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
     image: "public/project/travel.jpg", // Update with your actual image name
     tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
-    link: '#',
+    link: 'https://blacklistedtraders.netlify.app/',
   },
   {
     title: "HAD Startup Platform",
     description: "A website for a startup specializing in digital development and graphic design. Developed during a hackathon.",
     image: "/projects/had-startup.png", // Update with your actual image name
     tags: ['Angular', 'NodeJs', 'MySQL', 'Vscode'],
-    link: '#',
+    link: 'https://couvoiturage-hayder-jacer.netlify.app/',
   },
   {
     title: "Student Management Application",
     description: "A desktop application for managing students and teachers with useful queries.",
     image: "/projects/student-management.png", // Update with your actual image name
     tags: ['Netbeans', 'Java', 'MySQL'],
-    link: '#',
+    link: 'https://hayderlabidi.github.io/JUMANJI/project.html',
   },
   {
     title: "YouTOP Video Platform",
@@ -36,12 +36,12 @@ const projects = [
     description: "An interactive Tic-Tac-Toe game with engaging user interface.",
     image: "/projects/tictactoe.png", // Update with your actual image name
     tags: ['HTML', 'CSS', 'JavaScript'],
-    link: '#',
+    link: 'https://hayderlabidi.github.io/TIC-TAC-TO/',
   },
   {
     title: "Portfolio Website",
     description: "A 3D interactive portfolio website showcasing my skills and projects.",
-    image: "/projects/portfolio.png", // Update with your actual image name
+    image: "https://images.unsplash.com/photo-1618609255910-c670df13dff0?q=80&w=1000",
     tags: ['React', 'Three.js', 'Framer Motion', 'Tailwind CSS'],
     link: '#',
   },

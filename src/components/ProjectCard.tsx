@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -53,9 +54,9 @@ export default function ProjectCard({
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-outline text-sm block text-center"
+          className="btn-outline text-sm flex items-center justify-center gap-2"
         >
-          View Project
+          View Project <ExternalLink size={16} />
         </a>
       </div>
     </motion.div>

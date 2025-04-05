@@ -1,7 +1,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 
 export default function Hero() {
   const [text, setText] = useState('');
@@ -21,6 +22,18 @@ export default function Hero() {
     <section id="home" className="min-h-screen flex items-center justify-center section-padding relative">
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col items-center justify-center text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="mb-6"
+          >
+            <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-primary">
+              <AvatarImage src="/lovable-uploads/98f463d6-97f9-40e9-a979-c89bfa2e2807.png" alt="Hayder Labidi" />
+              <AvatarFallback>HL</AvatarFallback>
+            </Avatar>
+          </motion.div>
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,10 +68,26 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1 }}
-            className="flex flex-col md:flex-row gap-4 mb-16"
+            className="flex flex-col md:flex-row gap-4 mb-8"
           >
             <a href="#projects" className="btn-primary">View My Work</a>
             <a href="#contact" className="btn-outline">Get In Touch</a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.3 }}
+            className="mb-12"
+          >
+            <a 
+              href="/cv-hayder-labidi.pdf" 
+              download
+              className="flex items-center gap-2 bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 rounded-full px-6 py-2 transition-colors"
+            >
+              <Download size={18} />
+              Download CV
+            </a>
           </motion.div>
 
           <motion.div
