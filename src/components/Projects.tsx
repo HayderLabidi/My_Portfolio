@@ -6,7 +6,7 @@ const projects = [
   {
     title: "Traveler's Connection App",
     description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
-    image: "public/project/travel.jpg", // Update with your actual image name
+    image: "public/project/travel.png", // Update with your actual image name
     tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
     link: 'https://blacklistedtraders.netlify.app/',
   },

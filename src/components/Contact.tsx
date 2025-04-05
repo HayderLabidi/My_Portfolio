@@ -15,19 +15,19 @@ const contactInfo: ContactInfo[] = [
   {
     icon: <Mail size={24} />,
     title: 'Email',
-    content: 'hello@example.com',
-    link: 'mailto:hello@example.com'
+    content: 'hayderlabidi@gmail.com',
+    link: 'hayderlabidi@gmail.com'
   },
   {
     icon: <Phone size={24} />,
     title: 'Phone',
-    content: '+1 (123) 456-7890',
-    link: 'tel:+11234567890'
+    content: '+216 29019040',
+    link: 'tel:+216 29019040'
   },
   {
     icon: <MapPin size={24} />,
     title: 'Location',
-    content: 'San Francisco, CA'
+    content: 'Cité el Ghazela, Ariana'
   }
 ];
 
@@ -141,7 +141,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-muted/30 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-                    placeholder="John Doe"
+                    placeholder="Name"
                   />
                 </div>
                 <div>
@@ -154,7 +154,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-muted/30 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
-                    placeholder="john@example.com"
+                    placeholder="nom@example.com"
                   />
                 </div>
                 <div>

@@ -47,7 +47,7 @@ const Index = () => {
         
         <footer className="py-8 text-center text-muted-foreground">
           <p>© {new Date().getFullYear()} Hayder Labidi. All rights reserved.</p>
-          <p className="text-sm mt-2">Tunisia, Sidi Bouzid • +216 29019040 • hayderlabidi2001@icloud.com</p>
+          <p className="text-sm mt-2">Tunisia, Sidi Bouzid • +216 29019040 • hayderlabidi@gmail.com</p>
         </footer>
       </div>
     </div>
