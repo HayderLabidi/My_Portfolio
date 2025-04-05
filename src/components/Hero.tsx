@@ -29,7 +29,7 @@ export default function Hero() {
             className="mb-6"
           >
             <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-primary">
-              <AvatarImage src="/lovable-uploads/98f463d6-97f9-40e9-a979-c89bfa2e2807.png" alt="Hayder Labidi" />
+              <AvatarImage src="/lovable-uploads/logo.PNG" alt="Hayder Labidi" />
               <AvatarFallback>HL</AvatarFallback>
             </Avatar>
           </motion.div>
