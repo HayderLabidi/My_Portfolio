@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -100,9 +99,20 @@
   .card-subtle-hover {
     @apply transition-all duration-300 hover:border-primary/30 hover:bg-black/50;
   }
+  
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .project-card-image {
+    @apply w-full h-full object-cover object-center transition-transform duration-500;
+  }
 }
 
-/* Canvas related styles */
 canvas {
   touch-action: none;
 }
@@ -122,7 +132,6 @@ canvas {
   z-index: 1;
 }
 
-/* Scroll styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -140,7 +149,6 @@ canvas {
   background: rgba(138, 75, 255, 0.8);
 }
 
-/* Custom animations */
 .link-underline {
   position: relative;
 }
@@ -163,7 +171,6 @@ canvas {
   transform-origin: bottom left;
 }
 
-/* Additional animations */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -182,7 +189,6 @@ canvas {
   animation: pulse-soft 3s ease-in-out infinite;
 }
 
-/* Page transition animations */
 .page-enter {
   opacity: 0;
   transform: translateY(20px);
@@ -205,14 +211,12 @@ canvas {
   transition: opacity 500ms, transform 500ms;
 }
 
-/* Responsive image */
 .img-responsive {
   max-width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-/* Shadow effects */
 .shadow-glow {
   box-shadow: 0 0 15px rgba(138, 75, 255, 0.3);
 }
