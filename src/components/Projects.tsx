@@ -1,8 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
+import ProjectCard from './ProjectCard';
 
 const projects = [
   {
@@ -17,59 +16,60 @@ const projects = [
         featured: true
       },
       {
-        title: "Traveler's Connection App",
-        description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
-        image: "/project/HUD.png",
-        tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
-        link: 'https://blacklistedtraders.netlify.app/',
-        featured: true
-      },
-      {
-        title: "Traveler's Connection App",
-        description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
+        title: "Blacklisted Traders",
+        description: "A platform for traders with comprehensive information and resources.",
         image: "/project/blacklisted.png",
-        tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
+        tags: ['React', 'Node.js', 'MongoDB', 'Express'],
         link: 'https://blacklistedtraders.netlify.app/',
-        featured: true
+        featured: true,
+        github: 'https://github.com/HayderLabidi'
       },
       {
-        title: "Traveler's Connection App",
-        description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
+        title: "Jumanji Adventure",
+        description: "An interactive adventure game inspired by Jumanji.",
         image: "/project/jumanji.png",
-        tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
-        link: 'https://blacklistedtraders.netlify.app/',
+        tags: ['HTML', 'CSS', 'JavaScript'],
+        link: 'https://hayderlabidi.github.io/JUMANJI/project.html',
         featured: true
       },
       {
-        title: "Traveler's Connection App",
-        description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
+        title: "Library Management System",
+        description: "A comprehensive system for managing library resources and lending.",
         image: "/project/laravel_library2.png",
-        tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
-        link: 'https://blacklistedtraders.netlify.app/',
+        tags: ['Laravel', 'MySQL', 'Bootstrap'],
+        link: 'https://hayderlabidi.github.io/My.second.page/Art.html',
         featured: true
       },
       {
-        title: "Traveler's Connection App",
-        description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
+        title: "Ride Share Platform",
+        description: "A carpooling platform connecting drivers and passengers for shared rides.",
         image: "/project/rideshare.png",
-        tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
-        link: 'https://blacklistedtraders.netlify.app/',
+        tags: ['Angular', 'Node.js', 'Express', 'MongoDB'],
+        link: 'https://couvoiturage-hayder-jacer.netlify.app/',
         featured: true
       },
       {
-        title: "Traveler's Connection App",
-        description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
+        title: "YouTOP Video Platform",
+        description: "An innovative video-sharing platform allowing user engagement.",
         image: "/project/yotop.png",
-        tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
-        link: 'https://blacklistedtraders.netlify.app/',
+        tags: ['React', 'Firebase', 'Redux'],
+        link: 'https://hayderlabidi.github.io/My.second.page/Art.html',
         featured: true
       },
       {
-        title: "Traveler's Connection App",
-        description: "A social app for travelers to connect, share stories, and explore destinations. Built during internship at Bee Coders.",
+        title: "Tic Tac Toe Game",
+        description: "A modern implementation of the classic Tic Tac Toe game with enhanced UI.",
         image: "/project/tic_tac_to.png",
-        tags: ['Flutter', 'SpringBoot', 'MySQL', 'Vscode'],
-        link: 'https://blacklistedtraders.netlify.app/',
+        tags: ['HTML', 'CSS', 'JavaScript'],
+        link: 'https://hayderlabidi.github.io/TIC-TAC-TO/',
+        featured: true
+      },
+      {
+        title: "Calculator App",
+        description: "A sleek and functional calculator application with advanced features.",
+        image: "/project/HUD.png",
+        tags: ['JavaScript', 'HTML', 'CSS'],
+        link: 'https://hayderlabidi.github.io/Hayder_Calculator/claculator.html',
         featured: true
       }
     ]
@@ -146,75 +146,18 @@ export default function Projects() {
               {section.title}
             </motion.h3>
 
-            <div className={`grid gap-8 ${section.title === "Featured Projects" ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}`}>
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {section.items.map((project, index) => (
-                <motion.div
+                <ProjectCard
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card
-                    className={`group relative overflow-hidden border border-primary/20 bg-background/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 ${
-                      section.title === "Featured Projects" ? "h-[400px]" : "h-[300px]"
-                    }`}
-                    onMouseEnter={() => setHoveredProject(project.title)}
-                    onMouseLeave={() => setHoveredProject(null)}
-                  >
-                    <div className="absolute inset-0">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-                    </div>
-
-                    <div className="relative h-full p-6 flex flex-col justify-end">
-                      <h4 className="text-xl font-bold text-white mb-2">{project.title}</h4>
-                      <p className="text-gray-200 text-sm mb-4 line-clamp-2">
-                        {project.description}
-                      </p>
-                      
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map((tag, tagIndex) => (
-                          <Badge
-                            key={tagIndex}
-                            variant="secondary"
-                            className="bg-primary/20 text-primary-foreground"
-                          >
-                            {tag}
-                          </Badge>
-                        ))}
-                      </div>
-
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-white hover:text-primary transition-colors"
-                      >
-                        View Project
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                          <polyline points="15 3 21 3 21 9" />
-                          <line x1="10" y1="14" x2="21" y2="3" />
-                        </svg>
-                      </a>
-                    </div>
-                  </Card>
-                </motion.div>
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  tags={project.tags}
+                  link={project.link}
+                  github={project.github}
+                  index={index}
+                />
               ))}
             </div>
           </div>

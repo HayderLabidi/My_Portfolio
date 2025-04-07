@@ -1,6 +1,8 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
+import { useState } from "react";
+import { AspectRatio } from "./ui/aspect-ratio";
 
 interface ProjectCardProps {
   title: string;
@@ -21,89 +23,94 @@ export default function ProjectCard({
   github,
   index
 }: ProjectCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: index * 0.2 }}
-      className="group relative w-full aspect-[4/3]" // Fixed aspect ratio
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7, delay: index * 0.1 }}
+      className="group flex flex-col bg-card rounded-xl overflow-hidden shadow-lg hover-glow" 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="absolute inset-0 rounded-xl overflow-hidden bg-card">
-        {/* Background Image Container */}
-        <div className="relative w-full h-full">
-          {/* Image with consistent sizing */}
-          <img
+      {/* Image Container with fixed aspect ratio */}
+      <div className="relative w-full overflow-hidden">
+        <AspectRatio ratio={16/9}>
+          <motion.img
             src={image}
             alt={title}
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center"
             loading="lazy"
+            initial={{ scale: 1 }}
+            animate={{ scale: isHovered ? 1.05 : 1 }}
+            transition={{ duration: 0.4 }}
           />
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20" />
+        </AspectRatio>
+      </div>
+
+      {/* Content Container below the image */}
+      <div className="p-5 flex flex-col flex-grow">
+        {/* Project Title */}
+        <h3 className="text-xl font-bold text-foreground mb-2 line-clamp-1">
+          {title}
+        </h3>
+
+        {/* Project Description */}
+        <p className="text-muted-foreground mb-4 line-clamp-2 text-sm">
+          {description}
+        </p>
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-2 mb-4 mt-auto">
+          {tags.map((tag, i) => (
+            <motion.span
+              key={i}
+              className="px-2.5 py-0.5 text-xs font-medium rounded-full 
+                      bg-primary/20 text-primary border border-primary/20"
+              initial={{ scale: 1 }}
+              animate={{ scale: isHovered ? 1.05 : 1 }}
+              transition={{ duration: 0.2, delay: i * 0.03 }}
+            >
+              {tag}
+            </motion.span>
+          ))}
         </div>
 
-        {/* Content Container */}
-        <div className="absolute inset-0 p-6 flex flex-col justify-end transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-          {/* Project Title */}
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-2 line-clamp-1">
-            {title}
-          </h3>
-
-          {/* Project Description */}
-          <p className="text-gray-200 text-sm mb-4 line-clamp-2 leading-relaxed">
-            {description}
-          </p>
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tags.map((tag, i) => (
-              <span
-                key={i}
-                className="px-2.5 py-0.5 text-xs font-medium rounded-full 
-                         bg-primary/20 text-primary-foreground 
-                         border border-primary/20 backdrop-blur-sm"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex items-center gap-2">
-            <a
-              href={link}
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2 mt-2">
+          <motion.a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                    bg-primary text-white hover:bg-primary/90
+                    transition-all duration-300 text-sm font-medium shadow-md"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Live Demo
+            <ExternalLink size={14} />
+          </motion.a>
+          {github && (
+            <motion.a
+              href={github}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
-                       bg-primary text-white hover:bg-primary/90
-                       transition-all duration-300 text-sm"
+                      border border-primary/30 hover:border-primary/60
+                      text-primary backdrop-blur-sm shadow-md
+                      transition-all duration-300 text-sm font-medium"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              Live Demo
-              <ExternalLink size={14} />
-            </a>
-            {github && (
-              <a
-                href={github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
-                         border border-white/20 hover:border-white/40
-                         text-white backdrop-blur-sm
-                         transition-all duration-300 text-sm"
-              >
-                Code
-                <Github size={14} />
-              </a>
-            )}
-          </div>
+              Code
+              <Github size={14} />
+            </motion.a>
+          )}
         </div>
       </div>
-
-      {/* Glass Effect Border */}
-      <div className="absolute inset-0 rounded-xl border border-white/10 pointer-events-none
-                    backdrop-blur-sm opacity-0 group-hover:opacity-100
-                    transition-opacity duration-300" />
     </motion.div>
   );
 }
