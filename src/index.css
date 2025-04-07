@@ -44,6 +44,12 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary)) rgba(0, 0, 0, 0.2);
+  }
+
   body {
     @apply bg-background text-foreground font-sans;
     overflow-x: hidden;
@@ -77,6 +83,22 @@
 
   .btn-outline {
     @apply border border-primary text-primary hover:bg-primary/20 rounded-md px-4 py-2 transition-colors;
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-md hover:shadow-primary/30;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .card-subtle-hover {
+    @apply transition-all duration-300 hover:border-primary/30 hover:bg-black/50;
   }
 }
 
@@ -139,4 +161,58 @@ canvas {
 .link-underline:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+/* Additional animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Page transition animations */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+/* Responsive image */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Shadow effects */
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(138, 75, 255, 0.3);
 }
