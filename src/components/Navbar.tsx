@@ -30,13 +30,13 @@ export default function Navbar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 w-full z-50 px-6 md:px-12 transition-all duration-300 ${
-        scrolled ? 'py-3 neo-blur' : 'py-6 bg-transparent'
-      }`}
+        scrolled ? 'py-2' : 'py-4'
+      } neo-blur`}
     >
       <div className="flex items-center justify-between">
         {/* Logo */}
         <motion.div 
-          className="text-2xl font-poppins font-bold text-gradient"
+          className="text-xl font-poppins font-bold text-gradient"
           whileHover={{ scale: 1.05 }}
         >
           Portfolio
@@ -65,7 +65,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="text-white"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -76,14 +76,14 @@ export default function Navbar() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-background/90 backdrop-blur-md mt-4 rounded-lg p-4"
+          className="md:hidden bg-background/90 backdrop-blur-md mt-3 rounded-lg p-3"
         >
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-3">
             {navLinks.map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
-                className="text-white text-sm font-medium py-2"
+                className="text-white text-sm font-medium py-1.5"
                 whileHover={{ x: 10 }}
                 onClick={() => setMobileMenuOpen(false)}
               >

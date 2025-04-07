@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 
 interface ProjectCardProps {
   title: string;
@@ -8,6 +8,7 @@ interface ProjectCardProps {
   image: string;
   tags: string[];
   link: string;
+  github?: string;
   index: number;
 }
 
@@ -17,6 +18,7 @@ export default function ProjectCard({
   image,
   tags,
   link,
+  github,
   index
 }: ProjectCardProps) {
   return (
@@ -25,40 +27,83 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: index * 0.2 }}
-      whileHover={{ y: -10 }}
-      className="glass-card rounded-xl overflow-hidden w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.33%-1rem)]"
+      className="group relative w-full aspect-[4/3]" // Fixed aspect ratio
     >
-      <div className="h-52 overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
-      </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-muted-foreground text-sm mb-4">{description}</p>
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag, i) => (
-            <span
-              key={i}
-              className="bg-primary/20 text-xs rounded-full px-2 py-1 text-primary-foreground"
-            >
-              {tag}
-            </span>
-          ))}
+      <div className="absolute inset-0 rounded-xl overflow-hidden bg-card">
+        {/* Background Image Container */}
+        <div className="relative w-full h-full">
+          {/* Image with consistent sizing */}
+          <img
+            src={image}
+            alt={title}
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            loading="lazy"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/20" />
         </div>
-        
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-outline text-sm flex items-center justify-center gap-2"
-        >
-          View Project <ExternalLink size={16} />
-        </a>
+
+        {/* Content Container */}
+        <div className="absolute inset-0 p-6 flex flex-col justify-end transform transition-transform duration-500 group-hover:translate-y-[-8px]">
+          {/* Project Title */}
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-2 line-clamp-1">
+            {title}
+          </h3>
+
+          {/* Project Description */}
+          <p className="text-gray-200 text-sm mb-4 line-clamp-2 leading-relaxed">
+            {description}
+          </p>
+
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tags.map((tag, i) => (
+              <span
+                key={i}
+                className="px-2.5 py-0.5 text-xs font-medium rounded-full 
+                         bg-primary/20 text-primary-foreground 
+                         border border-primary/20 backdrop-blur-sm"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                       bg-primary text-white hover:bg-primary/90
+                       transition-all duration-300 text-sm"
+            >
+              Live Demo
+              <ExternalLink size={14} />
+            </a>
+            {github && (
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                         border border-white/20 hover:border-white/40
+                         text-white backdrop-blur-sm
+                         transition-all duration-300 text-sm"
+              >
+                Code
+                <Github size={14} />
+              </a>
+            )}
+          </div>
+        </div>
       </div>
+
+      {/* Glass Effect Border */}
+      <div className="absolute inset-0 rounded-xl border border-white/10 pointer-events-none
+                    backdrop-blur-sm opacity-0 group-hover:opacity-100
+                    transition-opacity duration-300" />
     </motion.div>
   );
 }
