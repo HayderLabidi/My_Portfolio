@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { useState } from "react";
 import { AspectRatio } from "./ui/aspect-ratio";
+import { getTechIcon } from "@/utils/techIcons";
 
 interface ProjectCardProps {
   title: string;
@@ -69,18 +70,12 @@ export default function ProjectCard({
           {tags.map((tag, i) => (
             <motion.span
               key={i}
-              className="px-2.5 py-1 text-xs font-medium rounded-full 
-                      bg-primary/10 text-primary border border-primary/20
-                      flex items-center gap-1.5"
+              className="px-2.5 py-0.5 text-xs font-medium rounded-full 
+                      bg-primary/20 text-primary border border-primary/20"
               initial={{ scale: 1 }}
               animate={{ scale: isHovered ? 1.05 : 1 }}
               transition={{ duration: 0.2, delay: i * 0.03 }}
             >
-              {techIcons[tag] && (
-                <span className="text-base">
-                  {techIcons[tag]}
-                </span>
-              )}
               {tag}
             </motion.span>
           ))}
