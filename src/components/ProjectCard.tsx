@@ -9,6 +9,7 @@ interface ProjectCardProps {
   description: string;
   image: string;
   tags: string[];
+  techIcons: { [key: string]: JSX.Element };
   link: string;
   github?: string;
   index: number;
@@ -19,6 +20,7 @@ export default function ProjectCard({
   description,
   image,
   tags,
+  techIcons,
   link,
   github,
   index
@@ -67,12 +69,18 @@ export default function ProjectCard({
           {tags.map((tag, i) => (
             <motion.span
               key={i}
-              className="px-2.5 py-0.5 text-xs font-medium rounded-full 
-                      bg-primary/20 text-primary border border-primary/20"
+              className="px-2.5 py-1 text-xs font-medium rounded-full 
+                      bg-primary/10 text-primary border border-primary/20
+                      flex items-center gap-1.5"
               initial={{ scale: 1 }}
               animate={{ scale: isHovered ? 1.05 : 1 }}
               transition={{ duration: 0.2, delay: i * 0.03 }}
             >
+              {techIcons[tag] && (
+                <span className="text-base">
+                  {techIcons[tag]}
+                </span>
+              )}
               {tag}
             </motion.span>
           ))}

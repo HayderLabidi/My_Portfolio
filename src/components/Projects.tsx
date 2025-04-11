@@ -2,6 +2,63 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import ProjectCard from './ProjectCard';
+import { 
+  FaReact, 
+  FaNodeJs, 
+  FaHtml5, 
+  FaCss3Alt, 
+  FaJs, 
+  FaAngular, 
+  FaJava, 
+  FaLaravel,
+  FaBootstrap,
+  FaGithub,
+  FaUnity
+} from 'react-icons/fa';
+import { 
+  SiMongodb, 
+  SiExpress, 
+  SiMysql, 
+  SiFirebase, 
+  SiRedux, 
+  SiThreedotjs,
+  SiFramer,
+  SiTailwindcss,
+  SiTypescript,
+  SiVsco,
+  SiFlutter,
+  SiSpring,
+  SiXml,
+  SiSharp
+} from 'react-icons/si';
+
+// Tech icon mapping
+const techIcons: { [key: string]: JSX.Element } = {
+  'React': <FaReact className="text-[#61DAFB]" />,
+  'Three.js': <SiThreedotjs className="text-white" />,
+  'Framer Motion': <SiFramer className="text-[#BB4B96]" />,
+  'Tailwind CSS': <SiTailwindcss className="text-[#38B2AC]" />,
+  'Node.js': <FaNodeJs className="text-[#339933]" />,
+  'MongoDB': <SiMongodb className="text-[#47A248]" />,
+  'Express': <SiExpress className="text-white" />,
+  'HTML': <FaHtml5 className="text-[#E34F26]" />,
+  'CSS': <FaCss3Alt className="text-[#1572B6]" />,
+  'JavaScript': <FaJs className="text-[#F7DF1E]" />,
+  'Laravel': <FaLaravel className="text-[#FF2D20]" />,
+  'MySQL': <SiMysql className="text-[#4479A1]" />,
+  'Bootstrap': <FaBootstrap className="text-[#7952B3]" />,
+  'Angular': <FaAngular className="text-[#DD0031]" />,
+  'Firebase': <SiFirebase className="text-[#FFCA28]" />,
+  'Redux': <SiRedux className="text-[#764ABC]" />,
+  'Java': <FaJava className="text-[#007396]" />,
+  'TypeScript': <SiTypescript className="text-[#3178C6]" />,
+  'Vscode': <SiVsco className="text-[#007ACC]" />,
+  'Flutter': <SiFlutter className="text-[#02569B]" />,
+  'Spring Boot': <SiSpring className="text-[#6DB33F]" />,
+  'XML': <SiXml className="text-[#F16529]" />,
+  'C#': <SiSharp className="text-[#239120]" />,
+  'Unity': <FaUnity className="text-[#000000]" />
+};
 
 const projects = [
   {
@@ -9,7 +66,7 @@ const projects = [
     items: [
       {
         title: "Portfolio Website",
-        description: "A 3D interactive portfolio website showcasing my skills and projects.",
+        description: "A modern portfolio website built with React and Three.js, featuring 3D animations, interactive elements, and a responsive design.",
         image: "/project/portfolio.png",
         tags: ['React', 'Three.js', 'Framer Motion', 'Tailwind CSS'],
         link: '#',
@@ -17,8 +74,8 @@ const projects = [
         github: 'https://github.com/HayderLabidi/My_Portfolio.git'
       },
       {
-        title: "Blacklisted Traders",
-        description: "A platform for traders with comprehensive information and resources.",
+        title: "Blacklisted Traders Academy",
+        description: "An educational platform for traders offering courses, market analysis, and real-time trading insights. Features user authentication and interactive learning modules.",
         image: "/project/blacklisted.png",
         tags: ['React', 'Node.js', 'MongoDB', 'Express'],
         link: 'https://blacklistedtraders.netlify.app/',
@@ -26,8 +83,8 @@ const projects = [
         github: 'https://github.com/HayderLabidi/blacklisted-academy.git'
       },
       {
-        title: "Jumanji Adventure",
-        description: "An interactive adventure game inspired by Jumanji.",
+        title: "Jumanji Adventure Game",
+        description: "An immersive web-based adventure game inspired by Jumanji, featuring interactive gameplay, custom animations, and sound effects.",
         image: "/project/jumanji.png",
         tags: ['HTML', 'CSS', 'JavaScript'],
         link: 'https://hayderlabidi.github.io/JUMANJI/project.html',
@@ -36,7 +93,7 @@ const projects = [
       },
       {
         title: "Library Management System",
-        description: "A comprehensive system for managing library resources and lending.",
+        description: "A full-stack library management solution with features for book tracking, user management, lending system, and automated notifications.",
         image: "/project/laravel_library2.png",
         tags: ['Laravel', 'MySQL', 'Bootstrap'],
         link: 'https://github.com/HayderLabidi/libraray_managment.git',
@@ -45,25 +102,25 @@ const projects = [
       },
       {
         title: "Ride Share Platform",
-        description: "A carpooling platform connecting drivers and passengers for shared rides.",
+        description: "A full-stack carpooling application with real-time tracking, booking system, and secure payment integration. Supports both drivers and passengers.",
         image: "/project/rideshare.png",
-        tags: ['Angular', 'Node.js', 'Express', 'MongoDB'],
+        tags: ['React', 'Node.js', 'Express', 'MongoDB'],
         link: 'https://couvoiturage-hayder-jacer.netlify.app/',
         featured: true,
         github: 'https://github.com/HayderLabidi/traveler-hub-platform.git'
       },
       {
-        title: "YouTOP Video Platform",
-        description: "An innovative video-sharing platform allowing user engagement.",
+        title: "YouTOP",
+        description: "A YouTube-inspired video platform with features like user authentication, video upload, commenting system, and personalized recommendations.",
         image: "/project/yotop.png",
-        tags: ['React', 'Firebase', 'Redux'],
+        tags: ['HTML', 'CSS', 'JavaScript'],
         link: 'https://hayderlabidi.github.io/My.second.page/Art.html',
         featured: true,
         github: 'https://github.com/HayderLabidi/My.second.page.git'
       },
       {
         title: "Tic Tac Toe Game",
-        description: "A modern implementation of the classic Tic Tac Toe game with enhanced UI.",
+        description: "A modern take on the classic game featuring AI opponent, multiplayer mode, and win tracking system.",
         image: "/project/tic_tac_to.png",
         tags: ['HTML', 'CSS', 'JavaScript'],
         link: 'https://hayderlabidi.github.io/TIC-TAC-TO/',
@@ -72,21 +129,21 @@ const projects = [
       },
       {
         title: "Calculator App",
-        description: "A sleek and functional calculator application with advanced features.",
-        image: "/project/HUD.png",
-        tags: ['JavaScript', 'HTML', 'CSS'],
-        link: 'https://github.com/HayderLabidi/MDW22.git',
-        featured: true,
-        github: 'https://github.com/HayderLabidi/MDW22.git'
-      },
-      {
-        title: "Calculator App",
-        description: "A sleek and functional calculator application with advanced features.",
+        description: "An advanced calculator application with scientific functions, history tracking, and theme customization options.",
         image: "/project/calculator.png",
         tags: ['JavaScript', 'HTML', 'CSS'],
         link: 'https://hayderlabidi.github.io/Hayder_Calculator/claculator.html',
         featured: true,
         github: 'https://github.com/HayderLabidi/Hayder_Calculator.git'
+      },
+      {
+        title: "Digital Agency Platform",
+        description: "A professional platform for a digital agency specializing in web and mobile app development, UI/UX design, and branding solutions. Features project showcases, service offerings, client collaboration tools, and an interactive design process workflow. Built with Angular and integrated with a robust backend system.",
+        image: "/project/HUD.png",
+        tags: ['Angular', 'MySQL', 'Bootstrap'],
+        link: 'https://github.com/HayderLabidi/MDW22.git',
+        featured: true,
+        github: 'https://github.com/HayderLabidi/MDW22.git'
       }
     ]
   },
@@ -94,36 +151,45 @@ const projects = [
     title: "Mobile Applications",
     items: [
       {
-        title: "Travel App",
-        description: "A website for a startup specializing in digital development and graphic design.",
+        title: "Travel Explorer App",
+        description: "A comprehensive travel application built with Flutter and Spring Boot, featuring destination discovery, trip planning, real-time updates, and offline support. Implements clean architecture with REST API integration.",
         image: "/project/travel.png",
-        tags: ['Angular', 'NodeJs', 'MySQL', 'Vscode'],
+        tags: ['Flutter', 'Spring Boot', 'MySQL'],
         link: 'https://github.com/HayderLabidi/Travel_app.git',
         featured: true,
         github: 'https://github.com/HayderLabidi/Travel_app.git'
       },
       {
-        title: "Chat App",
-        description: "An innovative video-sharing platform allowing user engagement.",
+        title: "Real-time Chat App",
+        description: "A native Android messaging application with real-time communication, file sharing, and user presence indicators. Built using Java and XML for the UI, with Firebase backend integration.",
         image: "/project/chatapp.png",
-        tags: ['HTML', 'CSS', 'JavaScript'],
+        tags: ['Java', 'XML', 'Firebase'],
         link: 'https://github.com/HayderLabidi/Chat_app.git',
         featured: true,
-        github: 'https://github.com/HayderLabidi/Chat_app.giti'
+        github: 'https://github.com/HayderLabidi/Chat_app.git'
       }
     ]
   },
   {
-    title: "Applications & Games",
+    title: "Desktop Applications & Games",
     items: [
       {
-        title: "Student Management Application",
-        description: "A desktop application for managing students and teachers with useful queries.",
+        title: "Island Adventure Game",
+        description: "An immersive 3D adventure game developed with Unity and C#. Features dynamic environment interaction, custom character controllers, and physics-based puzzles. Implements advanced Unity features including particle systems, post-processing effects, and custom shaders.",
         image: "/project/island.png",
-        tags: ['Netbeans', 'Java', 'MySQL'],
+        tags: ['Unity', 'C#'],
         link: 'https://github.com/HayderLabidi/ile.git',
         featured: true,
         github: 'https://github.com/HayderLabidi/ile.git'
+      },
+      {
+        title: "Student Management System",
+        description: "A comprehensive desktop application for educational institutions with features for student enrollment, grade management, and attendance tracking. Built using Java with a modern UI and MySQL database integration.",
+        image: "/project/student-management.png",
+        tags: ['Java', 'MySQL'],
+        link: 'https://github.com/HayderLabidi/GestionAPP.git',
+        featured: true,
+        github: 'https://github.com/HayderLabidi/GestionAPP.git'
       }
     ]
   }
@@ -169,6 +235,7 @@ export default function Projects() {
                   description={project.description}
                   image={project.image}
                   tags={project.tags}
+                  techIcons={techIcons}
                   link={project.link}
                   github={project.github}
                   index={index}
