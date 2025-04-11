@@ -187,9 +187,9 @@ const projects = [
         description: "A comprehensive desktop application for educational institutions with features for student enrollment, grade management, and attendance tracking. Built using Java with a modern UI and MySQL database integration.",
         image: "/project/student-management.png",
         tags: ['Java', 'MySQL'],
-        link: 'https://github.com/HayderLabidi/GestionAPP.git',
+        link: 'https://github.com/HayderLabidi/student-management.git',
         featured: true,
-        github: 'https://github.com/HayderLabidi/GestionAPP.git'
+        github: 'https://github.com/HayderLabidi/student-management.git'
       }
     ]
   }

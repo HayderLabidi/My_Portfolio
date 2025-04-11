@@ -1,4 +1,3 @@
-
 import { 
   Globe, 
   FileCode, 
@@ -19,7 +18,7 @@ import React from 'react';
 
 interface IconMap {
   [key: string]: {
-    icon: React.ComponentType<any>;
+    icon: React.ComponentType<unknown>;
     color: string;
   };
 }
@@ -286,7 +285,7 @@ const iconMap: IconMap = {
 
 // Function that returns both the icon and color
 export function getTechIcon(tech: string): {
-  Icon: React.ComponentType<any>;
+  Icon: React.ComponentType<unknown>;
   color: string;
 } {
   // Convert tech name to lowercase for case-insensitive matching

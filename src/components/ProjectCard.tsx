@@ -66,18 +66,19 @@ export default function ProjectCard({
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-4 mt-auto">
+        <div className="flex flex-wrap gap-2 mt-4">
           {tags.map((tag, i) => (
-            <motion.span
-              key={i}
-              className="px-2.5 py-0.5 text-xs font-medium rounded-full 
-                      bg-primary/20 text-primary border border-primary/20"
-              initial={{ scale: 1 }}
-              animate={{ scale: isHovered ? 1.05 : 1 }}
-              transition={{ duration: 0.2, delay: i * 0.03 }}
+            <div 
+              key={i} 
+              className="flex items-center gap-1 bg-primary/10 rounded-full px-3 py-1 hover:scale-105 transition-transform"
             >
-              {tag}
-            </motion.span>
+              <span className="text-xl">
+                {techIcons[tag] || <span className="text-sm text-gray-500">{tag}</span>}
+              </span>
+              <span className="text-sm text-muted-foreground">
+                {tag}
+              </span>
+            </div>
           ))}
         </div>
 
