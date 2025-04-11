@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
+import emailjs from '@emailjs/browser';
 
 interface ContactInfo {
   icon: React.ReactNode;
@@ -47,19 +48,40 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: 'hayderlabidi@gmail.com',
+      };
+
+      await emailjs.send(
+        'service_alf91ok', // Replace with your EmailJS service ID
+        'template_4gnlq15', // Replace with your EmailJS template ID
+        templateParams,
+        'ensVGC4FONLuL3Byc' // Replace with your EmailJS public key
+      );
+
       setFormData({ name: '', email: '', message: '' });
       toast({
-        title: "Message sent!",
+        title: "Message sent successfully!",
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
-    }, 1500);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again later or contact me directly via email.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

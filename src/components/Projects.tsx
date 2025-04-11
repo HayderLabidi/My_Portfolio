@@ -13,7 +13,8 @@ const projects = [
         image: "/project/portfolio.png",
         tags: ['React', 'Three.js', 'Framer Motion', 'Tailwind CSS'],
         link: '#',
-        featured: true
+        featured: true,
+        github: 'https://github.com/HayderLabidi/My_Portfolio.git'
       },
       {
         title: "Blacklisted Traders",
@@ -22,7 +23,7 @@ const projects = [
         tags: ['React', 'Node.js', 'MongoDB', 'Express'],
         link: 'https://blacklistedtraders.netlify.app/',
         featured: true,
-        github: 'https://github.com/HayderLabidi'
+        github: 'https://github.com/HayderLabidi/blacklisted-academy.git'
       },
       {
         title: "Jumanji Adventure",
@@ -30,15 +31,17 @@ const projects = [
         image: "/project/jumanji.png",
         tags: ['HTML', 'CSS', 'JavaScript'],
         link: 'https://hayderlabidi.github.io/JUMANJI/project.html',
-        featured: true
+        featured: true,
+        github: 'https://github.com/HayderLabidi/JUMANJI.git'
       },
       {
         title: "Library Management System",
         description: "A comprehensive system for managing library resources and lending.",
         image: "/project/laravel_library2.png",
         tags: ['Laravel', 'MySQL', 'Bootstrap'],
-        link: 'https://hayderlabidi.github.io/My.second.page/Art.html',
-        featured: true
+        link: 'https://github.com/HayderLabidi/libraray_managment.git',
+        featured: true,
+        github: 'https://github.com/HayderLabidi/libraray_managment.git'
       },
       {
         title: "Ride Share Platform",
@@ -46,7 +49,8 @@ const projects = [
         image: "/project/rideshare.png",
         tags: ['Angular', 'Node.js', 'Express', 'MongoDB'],
         link: 'https://couvoiturage-hayder-jacer.netlify.app/',
-        featured: true
+        featured: true,
+        github: 'https://github.com/HayderLabidi/traveler-hub-platform.git'
       },
       {
         title: "YouTOP Video Platform",
@@ -54,7 +58,8 @@ const projects = [
         image: "/project/yotop.png",
         tags: ['React', 'Firebase', 'Redux'],
         link: 'https://hayderlabidi.github.io/My.second.page/Art.html',
-        featured: true
+        featured: true,
+        github: 'https://github.com/HayderLabidi/My.second.page.git'
       },
       {
         title: "Tic Tac Toe Game",
@@ -62,15 +67,26 @@ const projects = [
         image: "/project/tic_tac_to.png",
         tags: ['HTML', 'CSS', 'JavaScript'],
         link: 'https://hayderlabidi.github.io/TIC-TAC-TO/',
-        featured: true
+        featured: true,
+        github: 'https://github.com/HayderLabidi/TIC-TAC-TO.git'
       },
       {
         title: "Calculator App",
         description: "A sleek and functional calculator application with advanced features.",
         image: "/project/HUD.png",
         tags: ['JavaScript', 'HTML', 'CSS'],
+        link: 'https://github.com/HayderLabidi/MDW22.git',
+        featured: true,
+        github: 'https://github.com/HayderLabidi/MDW22.git'
+      },
+      {
+        title: "Calculator App",
+        description: "A sleek and functional calculator application with advanced features.",
+        image: "/project/calculator.png",
+        tags: ['JavaScript', 'HTML', 'CSS'],
         link: 'https://hayderlabidi.github.io/Hayder_Calculator/claculator.html',
-        featured: true
+        featured: true,
+        github: 'https://github.com/HayderLabidi/Hayder_Calculator.git'
       }
     ]
   },
@@ -78,18 +94,22 @@ const projects = [
     title: "Mobile Applications",
     items: [
       {
-        title: "HAD Startup Platform",
+        title: "Travel App",
         description: "A website for a startup specializing in digital development and graphic design.",
         image: "/project/travel.png",
         tags: ['Angular', 'NodeJs', 'MySQL', 'Vscode'],
-        link: 'https://couvoiturage-hayder-jacer.netlify.app/'
+        link: 'https://github.com/HayderLabidi/Travel_app.git',
+        featured: true,
+        github: 'https://github.com/HayderLabidi/Travel_app.git'
       },
       {
-        title: "YouTOP Video Platform",
+        title: "Chat App",
         description: "An innovative video-sharing platform allowing user engagement.",
-        image: "/lovable-uploads/logo.PNG",
+        image: "/project/chatapp.png",
         tags: ['HTML', 'CSS', 'JavaScript'],
-        link: 'https://hayderlabidi.github.io/My.second.page/Art.html'
+        link: 'https://github.com/HayderLabidi/Chat_app.git',
+        featured: true,
+        github: 'https://github.com/HayderLabidi/Chat_app.giti'
       }
     ]
   },
@@ -99,16 +119,11 @@ const projects = [
       {
         title: "Student Management Application",
         description: "A desktop application for managing students and teachers with useful queries.",
-        image: "/lovable-uploads/logo.PNG",
+        image: "/project/island.png",
         tags: ['Netbeans', 'Java', 'MySQL'],
-        link: 'https://hayderlabidi.github.io/JUMANJI/project.html'
-      },
-      {
-        title: "TIK TAK TO Game",
-        description: "An interactive Tic-Tac-Toe game with engaging user interface.",
-        image: "/lovable-uploads/logo.PNG",
-        tags: ['HTML', 'CSS', 'JavaScript'],
-        link: 'https://hayderlabidi.github.io/TIC-TAC-TO/'
+        link: 'https://github.com/HayderLabidi/ile.git',
+        featured: true,
+        github: 'https://github.com/HayderLabidi/ile.git'
       }
     ]
   }
