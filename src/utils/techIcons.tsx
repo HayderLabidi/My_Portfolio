@@ -16,64 +16,183 @@ import {
   Users,
   Zap
 } from "lucide-react";
+import React from 'react';
 
 interface IconMap {
-  [key: string]: React.ComponentType<any>;
+  [key: string]: {
+    icon: React.ComponentType<any>;
+    color: string;
+  };
 }
 
-// Map technology names to icons
+// Map technology names to icons with specific colors
 const iconMap: IconMap = {
   // Frontend
-  React: FileCode,
-  Angular: FileCode,
-  Vue: FileCode,
-  JavaScript: Code,
-  TypeScript: Code,
-  HTML: Layout,
-  CSS: Layout,
-  Bootstrap: Layout,
-  "Tailwind CSS": Layout,
+  React: { 
+    icon: FileCode, 
+    color: "#61DAFB" // React blue
+  },
+  Angular: { 
+    icon: FileCode, 
+    color: "#DD0031" // Angular red
+  },
+  Vue: { 
+    icon: FileCode, 
+    color: "#41B883" // Vue green
+  },
+  JavaScript: { 
+    icon: Code, 
+    color: "#F7DF1E" // JavaScript yellow
+  },
+  TypeScript: { 
+    icon: Code, 
+    color: "#3178C6" // TypeScript blue
+  },
+  HTML: { 
+    icon: Layout, 
+    color: "#E34F26" // HTML orange
+  },
+  CSS: { 
+    icon: Layout, 
+    color: "#1572B6" // CSS blue
+  },
+  Bootstrap: { 
+    icon: Layout, 
+    color: "#7952B3" // Bootstrap purple
+  },
+  "Tailwind CSS": { 
+    icon: Layout, 
+    color: "#06B6D4" // Tailwind teal
+  },
   
   // Backend
-  Node: Server,
-  "Node.js": Server,
-  NodeJs: Server,
-  Express: Server,
-  Laravel: Server,
-  PHP: Server,
-  Java: Server,
-  Python: Server,
+  Node: { 
+    icon: Server, 
+    color: "#339933" // Node green
+  },
+  "Node.js": { 
+    icon: Server, 
+    color: "#339933" // Node green
+  },
+  NodeJs: { 
+    icon: Server, 
+    color: "#339933" // Node green
+  },
+  Express: { 
+    icon: Server, 
+    color: "#000000" // Express black
+  },
+  Laravel: { 
+    icon: Server, 
+    color: "#FF2D20" // Laravel red
+  },
+  PHP: { 
+    icon: Server, 
+    color: "#777BB4" // PHP purple
+  },
+  Java: { 
+    icon: Server, 
+    color: "#007396" // Java blue
+  },
+  Python: { 
+    icon: Server, 
+    color: "#3776AB" // Python blue
+  },
   
   // Database
-  MongoDB: Database,
-  MySQL: Database,
-  Firebase: Database,
+  MongoDB: { 
+    icon: Database, 
+    color: "#47A248" // MongoDB green
+  },
+  MySQL: { 
+    icon: Database, 
+    color: "#4479A1" // MySQL blue
+  },
+  Firebase: { 
+    icon: Database, 
+    color: "#FFCA28" // Firebase yellow
+  },
   
   // Mobile
-  Android: Smartphone,
-  iOS: Smartphone,
-  Flutter: Smartphone,
-  "React Native": Smartphone,
+  Android: { 
+    icon: Smartphone, 
+    color: "#3DDC84" // Android green
+  },
+  iOS: { 
+    icon: Smartphone, 
+    color: "#000000" // iOS black
+  },
+  Flutter: { 
+    icon: Smartphone, 
+    color: "#02569B" // Flutter blue
+  },
+  "React Native": { 
+    icon: Smartphone, 
+    color: "#61DAFB" // React Native blue
+  },
   
   // DevOps & Cloud
-  AWS: Cloud,
-  Azure: Cloud,
-  Docker: Cloud,
-  Kubernetes: Cloud,
+  AWS: { 
+    icon: Cloud, 
+    color: "#FF9900" // AWS orange
+  },
+  Azure: { 
+    icon: Cloud, 
+    color: "#0078D4" // Azure blue
+  },
+  Docker: { 
+    icon: Cloud, 
+    color: "#2496ED" // Docker blue
+  },
+  Kubernetes: { 
+    icon: Cloud, 
+    color: "#326CE5" // Kubernetes blue
+  },
   
   // Tools & Others
-  Git: Code,
-  GitHub: Code,
-  GitLab: Code,
-  Redux: Layers,
-  Vscode: Code,
-  Netbeans: Code,
-  "Three.js": Cpu,
-  Three: Cpu,
-  "Framer Motion": TrendingUp
+  Git: { 
+    icon: Code, 
+    color: "#F05032" // Git orange
+  },
+  GitHub: { 
+    icon: Code, 
+    color: "#181717" // GitHub black
+  },
+  GitLab: { 
+    icon: Code, 
+    color: "#FC6D26" // GitLab orange
+  },
+  Redux: { 
+    icon: Layers, 
+    color: "#764ABC" // Redux purple
+  },
+  Vscode: { 
+    icon: Code, 
+    color: "#007ACC" // VS Code blue
+  },
+  Netbeans: { 
+    icon: Code, 
+    color: "#1B6AC6" // NetBeans blue
+  },
+  "Three.js": { 
+    icon: Cpu, 
+    color: "#000000" // Three.js black
+  },
+  Three: { 
+    icon: Cpu, 
+    color: "#000000" // Three.js black
+  },
+  "Framer Motion": { 
+    icon: TrendingUp, 
+    color: "#0055FF" // Framer blue
+  }
 };
 
-export function getTechIcon(tech: string): React.ComponentType<any> {
+// New function that returns both the icon and color
+export function getTechIcon(tech: string): {
+  Icon: React.ComponentType<any>;
+  color: string;
+} {
   // Convert tech name to lowercase for case-insensitive matching
   const techLower = tech.toLowerCase();
   
@@ -82,6 +201,17 @@ export function getTechIcon(tech: string): React.ComponentType<any> {
     key => key.toLowerCase() === techLower
   );
   
-  // Return the matching icon or a default icon
-  return matchingKey ? iconMap[matchingKey] : Globe;
+  // Return the matching icon and color or defaults
+  if (matchingKey) {
+    return {
+      Icon: iconMap[matchingKey].icon,
+      color: iconMap[matchingKey].color
+    };
+  }
+  
+  // Default fallback
+  return {
+    Icon: Globe,
+    color: "#64748b" // Slate/neutral color for unknown tech
+  };
 }

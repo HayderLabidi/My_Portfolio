@@ -66,7 +66,7 @@ export default function ProjectCard({
         {/* Tech Icons */}
         <div className="flex flex-wrap gap-3 mb-4 mt-auto">
           {tags.map((tag, i) => {
-            const IconComponent = getTechIcon(tag);
+            const { Icon, color } = getTechIcon(tag);
             return (
               <motion.div
                 key={i}
@@ -76,7 +76,7 @@ export default function ProjectCard({
                 transition={{ duration: 0.2, delay: i * 0.03 }}
                 title={tag}
               >
-                <IconComponent className="w-5 h-5 text-primary" />
+                <Icon className="w-5 h-5" style={{ color }} />
               </motion.div>
             );
           })}
