@@ -111,6 +111,14 @@
   .project-card-image {
     @apply w-full h-full object-cover object-center transition-transform duration-500;
   }
+
+  .tech-icon-container {
+    @apply flex items-center justify-center p-2 rounded-md 
+           bg-background/80 border border-primary/20 
+           hover:border-primary/50 transition-all duration-300
+           hover:scale-110 hover:shadow-sm hover:shadow-primary/20
+           backdrop-blur-sm;
+  }
 }
 
 canvas {
