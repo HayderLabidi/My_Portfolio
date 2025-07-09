@@ -81,7 +81,7 @@ export default function Hero() {
             className="mb-12"
           >
             <a 
-              href="/cv-hayder-labidi.pdf" 
+              href="/Hayder cv englais.pdf" 
               download
               className="flex items-center gap-2 bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30 rounded-full px-6 py-2 transition-colors"
             >
