@@ -1,5 +1,5 @@
 
-## Project info
+## HAYDER LABIDI 
 There are several ways of editing your application.
 
 Follow these steps:
